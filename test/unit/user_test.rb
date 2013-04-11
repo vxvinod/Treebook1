@@ -23,7 +23,7 @@ test "user profile name validation " do
 
     user = User.new
 
-    user.profile_name="vinod"
+    user.profile_name="ashok1"
 
     
     assert !user.save
@@ -33,8 +33,10 @@ test "user profile name validation " do
 end
 
 test "profile name should have correct format without spaces" do
-    user=User.new
-    user.profile_name="Ashok"
+    
+    user=User.new(first_name:'vinod',last_name: 'kumar',email: 'vinod3@treebook.com')
+    user.password=user.password_confirmation="vinodkum123"
+    user.profile_name="Ashok2"
 
     
     assert !user.save
@@ -43,8 +45,16 @@ test "profile name should have correct format without spaces" do
 
 end
 
-  
+test "profile name should be have correct format" do
 
+    user=User.new(first_name:'vinod',last_name: 'kumar',email: 'vinod3@treebook.com')
+    user.password=user.password_confirmation="vinodkumar123"
+    user.profile_name="vinodkumar3"
+  
+    assert user.valid?
+
+
+  end
 
 
 end
