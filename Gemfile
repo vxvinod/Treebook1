@@ -9,6 +9,10 @@ gem 'rake','10.0.4'
 gem 'devise'
 gem 'simple_form'
 
+group :test do
+	gem 'shoulda'
+
+end
 group :development,:test do
 	gem 'sqlite3'
 end
